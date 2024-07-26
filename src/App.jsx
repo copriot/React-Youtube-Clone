@@ -1,8 +1,19 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import Feed from "./pages/Feed";
+import Undefined from "./pages/Undefined";
+import VideoDetail from "./components/VideoDetail";
+
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello zek!</h1>
-    </>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Feed />} />
+        <Route path="/watch" element={<VideoDetail />} />
+        <Route path="*" element={<Undefined />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

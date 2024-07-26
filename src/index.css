@@ -3,7 +3,20 @@
 @tailwind utilities;
 
 body {
-  background-color: black;
+  background: linear-gradient(35deg, red, black, blue, white);
+  animation: gradient 250s ease infinite;
   color: white;
   overflow: hidden;
+  background-size: 10000% 100000%;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
