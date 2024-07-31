@@ -26,7 +26,7 @@ const Header = () => {
           <BiSearchAlt />
         </button>
       </form>
-      <div className="flex text-2xl cursor-pointer">
+      <div className="flex text-2xl cursor-pointer gap-4">
         <HiBellAlert className="hover:text-gray-400 duration-[250ms]" />
         <IoVideocam className="hover:text-gray-400 duration-[250ms]" />
         <MdVideoLibrary className="hover:text-gray-400 duration-[250ms]" />
