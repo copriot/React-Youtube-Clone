@@ -38,10 +38,11 @@ export const VideoProvider = ({ children }) => {
         setVideos(res.data.data);
         setError(null); // eskiden olan hatları kaldır
       })
+
       .catch((err) => setError(err.message))
       .finally(() => setIsLoading(false));
   }, [selectedCategory]);
-
+  //console.log(videos);
   return (
     <VideoContext.Provider
       value={{

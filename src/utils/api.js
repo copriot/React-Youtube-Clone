@@ -1,15 +1,14 @@
 import axios from "axios";
+// yapılan her istekte geçerli olmasını istediğimiz ayarları tanımladığımız bir axios örneği
 const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
     params: {
-        geo: "TR",
+        geo: "US",
         lang: "tr",
     },
-
     headers: {
-        'x-rapidapi-key': import.meta.env.VITE_API_KEY,
+        "X-RapidAPI-Key": import.meta.env.VITE_API_KEY,
         "X-RapidAPI-Host": "yt-api.p.rapidapi.com",
-    }
-
+    },
 });
 export default api;

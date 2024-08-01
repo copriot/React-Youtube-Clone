@@ -7,14 +7,14 @@ import { MdVideoLibrary } from "react-icons/md";
 
 const Header = () => {
   return (
-    <header className="flex border-gray-400 justify-between items-center p-4">
+    <header className="flex  justify-between items-center p-2">
       <Link>
         <img
           src="src/utils/yotöbe1.jpeg"
           alt="Logo"
           className="rounded m-5 w-[60px]"
         />
-        <h1 className="text-2xl max-sm:hidden">YoTövbePremium</h1>
+        <h1 className="text-2xl max-sm:hidden">Yo Tövbe Piremiyum</h1>
       </Link>
       <form className="flex group border border-gray-500 rounded-[20px] overflow-hidden">
         <input

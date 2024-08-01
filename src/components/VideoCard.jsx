@@ -1,12 +1,24 @@
-import React from "react";
-
-const VideoCard = () => {
+import React, { useState } from "react";
+import millify from "millify";
+import { useNavigate } from "react-router-dom";
+const VideoCard = ({ videoInfo }) => {
+  const [isHover, setIsHover] = useState(false);
+  const navigate = useNavigate();
   return (
-    <div className="cursor-pointer">
+    <div
+      onClick={() => navigate(`/watch?v=${videoInfo.videoId}`)}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+      className="cursor-pointer"
+    >
       {/*resim alanı*/}
       <div>
         <img
-          src="https://i.ytimg.com/vi/3X08UfKOE-M/hqdefault.jpg?sqp=-oaymwExCOADEI4CSFryq4qpAyMIARUAAIhCGAHwAQH4Af4JgALQBYoCDAgAEAEYZSBUKEkwDw==&rs=AOn4CLC8P1aemHMyMZ9kWztdSk-xQq2CaA"
+          src={
+            isHover && videoInfo.richThumbnail
+              ? videoInfo.richThumbnail[0].url
+              : videoInfo.thumbnail[videoInfo.thumbnail.length - 1].url
+          }
           alt=""
           className="w-full h-full rounded-lg"
         />
@@ -14,19 +26,22 @@ const VideoCard = () => {
       {/*video alt detay alanı */}
       <div className="flex gap-4 mt-5">
         <img
-          src="https://yt3.ggpht.com/_h_p-OVRpbr9NzhfQNwIygLtbcHcwTUXqyc09L_OO6T0f1H9hH5MFOxLb4otU5C9uqNuhvv3NLk=s68-c-k-c0x00ffffff-no-rj"
+          src={videoInfo.channelThumbnail && videoInfo.channelThumbnail[0].url}
           alt="logo"
           className="w-14 h-14 rounded-full c-pic"
         />
         <div>
-          <h4 className="font-bold line-clamp-2">Title</h4>
-          <p>channelTitle</p>
+          <h4 className="font-bold line-clamp-2">{videoInfo.title}</h4>
+          <p>{videoInfo.channelTitle}</p>
           <div className="flex gap-3">
             <p className="flex gap-2">
-              <span>963,2k</span>
+              <span>{millify(videoInfo.viewCount)}</span>
               <span className="text">Görüntülenme</span>
             </p>
-            *<p>1 ay önce yayınlandı</p>
+            *
+            <p className="whitespace-nowrap text-[14px]">
+              {videoInfo.publishedTimeText}
+            </p>
           </div>
         </div>
       </div>

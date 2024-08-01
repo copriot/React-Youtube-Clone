@@ -3,20 +3,26 @@
 @tailwind utilities;
 
 body {
-  background: linear-gradient(35deg, red, black, blue, white);
-  animation: gradient 250s ease infinite;
+  background: linear-gradient(35deg, red, black, blue, rgb(111, 29, 161));
+
   color: white;
   overflow: hidden;
-  background-size: 10000% 100000%;
+  background-size: 100%;
 }
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.videos {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  overflow: auto;
+  height: 100vh;
+  gap: 50px;
+  padding: 25px;
+}
+.videos::-webkit-scrollbar {
+  background: transparent;
+  width: 8px;
+  border-radius: 5px;
+}
+.videos::-webkit-scrollbar-thumb {
+  background-color: rgb(210, 208, 72);
 }

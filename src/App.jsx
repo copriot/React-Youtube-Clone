@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Feed from "./pages/Feed";
 import Undefined from "./pages/Undefined";
-import VideoDetail from "./components/VideoDetail";
+import VideoDetail from "./pages/VideoDetail";
 
 function App() {
   return (
