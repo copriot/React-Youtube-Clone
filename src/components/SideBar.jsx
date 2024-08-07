@@ -5,7 +5,7 @@ import { VideoContext } from "../context/videoContext";
 const SideBar = () => {
   const { selectedCategory, setSelectedCategory } = useContext(VideoContext);
   return (
-    <div className="flex flex-col  md:p-4  h-screen overflow-y-scroll backdrop-blur-md bg-white/30 border border-gray-200 shadow-lg  rounded-lg">
+    <div className="flex flex-col  md:p-4  h-screen overflow-y-scroll ">
       {categories.map((item, i) => (
         <Link to={"/"} key={i} onClick={() => setSelectedCategory(item)}>
           <div

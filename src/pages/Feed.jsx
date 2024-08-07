@@ -21,7 +21,7 @@ const Feed = () => {
           videos?.map(
             (item) =>
               item.type === "video" && (
-                <VideoCard key={item.videoId} videoInfo={item} />
+                <VideoCard key={item.videoId} videos={item} />
               ),
           )
         )}

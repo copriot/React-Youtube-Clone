@@ -14,7 +14,7 @@ const VideoDetail = () => {
   const [searchParams] = useSearchParams();
   //urlden v isimli parametreye searcParams içindeki get metodu ile erişme
   const id = searchParams.get("v");
-  console.log(videos);
+
   //
   //id'si bilinen videonun bilgilerini al apiden
   useEffect(() => {
@@ -46,9 +46,9 @@ const VideoDetail = () => {
         )}
       </div>
       {/*İlgili videolar*/}
-      <div className="wrapper flex flex-col gap-5 ps-5">
-        {videos?.relatedVideos.data.map((x, videoId) => (
-          <VideoCard key={x.videoId} video={x} />
+      <div className=" flex flex-col gap-5 ps-5  ]">
+        {videos?.relatedVideos.data.map((item) => (
+          <VideoCard isRow={true} key={item.videoId} videos={item} />
         ))}
       </div>
     </div>

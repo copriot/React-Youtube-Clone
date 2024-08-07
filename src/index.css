@@ -18,13 +18,13 @@ body {
   gap: 50px;
   padding: 25px;
 }
-.videos::-webkit-scrollbar {
+*::-webkit-scrollbar {
   background: transparent !important;
-  width: 8px;
-  border-radius: 5px;
 }
-.videos::-webkit-scrollbar-thumb {
-  background-color: rgb(210, 208, 72) !important;
+*::-webkit-scrollbar-thumb {
+  background-color: #865dd2 !important;
+  border-radius: 10px;
+  width: 8px;
 }
 
 .detail-page {
@@ -36,5 +36,37 @@ body {
   .detail-page {
     display: grid;
     grid-template-columns: 1fr !important;
+  }
+}
+.row {
+  display: grid;
+  grid-template-columns: 110px auto;
+  align-items: center;
+  gap: 20px;
+}
+.row div:nth-child(2) img {
+  display: none;
+}
+
+.row p {
+  font-size: 13px;
+}
+
+.wrapper {
+  container-type: inline-size;
+}
+
+/* kartların kapsayıcısının boyutu 1300px altındayken resim daha küçük olsun */
+@container (min-width: 1000px) {
+  .row {
+    grid-template-columns: 340px auto;
+  }
+
+  .row h4 {
+    font-size: 20px;
+  }
+
+  .row p {
+    font-size: 18px;
   }
 }

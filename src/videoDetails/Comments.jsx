@@ -22,8 +22,8 @@ const Comments = ({ data }) => {
 
           <div className="flex flex-col gap-2">
             <h5 className="flex gap-2 items-center">
-              <span className="font-semibold">{i?.authorText}</span>
-              <span className="text-gray-400">{i?.publishedTimeText}</span>
+              <span className="font-semibold">{i.authorText}</span>
+              <span className="text-gray-400">{i.publishedTimeText}</span>
             </h5>
 
             <p>{i?.textDisplay}</p>
@@ -42,10 +42,10 @@ const Comments = ({ data }) => {
               </button>
             </div>
 
-            {i.replyCount > 0 && (
+            {i?.replyCount > 0 && (
               <div className="flex w-fit items-center p-1 rounded-md cursor-pointer gap-2 text-blue-500 hover:bg-[#36639662]">
                 <TiArrowSortedDown />
-                {i.replyCount} yanıt
+                {i?.replyCount} yanıt
               </div>
             )}
           </div>

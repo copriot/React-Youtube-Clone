@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import millify from "millify";
 import { useNavigate } from "react-router-dom";
-const VideoCard = ({ videos }) => {
+const VideoCard = ({ videos, isRow }) => {
   const [isHover, setIsHover] = useState(false);
   const navigate = useNavigate();
 
   return (
     <div
-      onClick={() => navigate(`/watch?v=${videos?.videoId}`)}
+      onClick={() => navigate(`/watch?v=${videos.videoId}`)}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      className="cursor-pointer"
+      className={`${isRow ? "row" : ""} cursor-pointer`}
     >
       {/*resim alanı*/}
       <div>
         <img
           src={
-            isHover && videos?.richThumbnail
-              ? videos?.richThumbnail[0]?.url
-              : videos?.thumbnail[videos?.thumbnail?.length - 1]?.url
+            isHover && videos?.richThumbnail && videos.richThumbnail[0]?.url
+              ? videos.richThumbnail[0].url
+              : videos?.thumbnail &&
+                videos.thumbnail[videos.thumbnail.length - 1]?.url
           }
           alt=""
           className="w-full h-full rounded-lg"
@@ -39,7 +40,7 @@ const VideoCard = ({ videos }) => {
               <span>{millify(videos?.viewCount)}</span>
               <span className="text">Görüntülenme</span>
             </p>
-            *
+
             <p className="whitespace-nowrap text-[14px]">
               {videos?.publishedTimeText}
             </p>
