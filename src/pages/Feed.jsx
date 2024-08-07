@@ -13,7 +13,7 @@ const Feed = () => {
     <div className="flex">
       <SideBar />
       <div className="videos">
-        {true ? (
+        {isLoading ? (
           <Loader />
         ) : error ? (
           <Error message={error} />

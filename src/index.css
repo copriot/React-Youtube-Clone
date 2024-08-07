@@ -19,10 +19,22 @@ body {
   padding: 25px;
 }
 .videos::-webkit-scrollbar {
-  background: transparent;
+  background: transparent !important;
   width: 8px;
   border-radius: 5px;
 }
 .videos::-webkit-scrollbar-thumb {
-  background-color: rgb(210, 208, 72);
+  background-color: rgb(210, 208, 72) !important;
+}
+
+.detail-page {
+  display: grid;
+
+  grid-template-columns: auto 350px !important;
+}
+@media (max-width: 1000px) {
+  .detail-page {
+    display: grid;
+    grid-template-columns: 1fr !important;
+  }
 }

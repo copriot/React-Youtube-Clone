@@ -7,8 +7,8 @@ import { MdVideoLibrary } from "react-icons/md";
 
 const Header = () => {
   return (
-    <header className="flex  justify-between items-center  backdrop-blur-md bg-white/30 border-bottom border-gray-200">
-      <Link>
+    <header className="flex  justify-between items-center  backdrop-blur-md bg-white/30">
+      <Link className="flex items-center" to={"/"}>
         <img
           src="src/utils/yotöbe1.jpeg"
           alt="Logo"
@@ -22,7 +22,7 @@ const Header = () => {
         <input
           type="text"
           placeholder="Ara"
-          className="bg-black text-white rounded outline-none px-5 py-2 focus:border-blue-500 focus:border"
+          className=" rounded-l-[40px] bg-black text-white rounded outline-none px-5 py-2 focus:border-black focus:border"
         />
         <button className="bg-zinc-400 px-4 text-2xl  hover:bg-yellow-600">
           <BiSearchAlt />

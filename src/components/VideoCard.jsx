@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import millify from "millify";
 import { useNavigate } from "react-router-dom";
-const VideoCard = ({ videoInfo }) => {
+const VideoCard = ({ videos }) => {
   const [isHover, setIsHover] = useState(false);
   const navigate = useNavigate();
+
   return (
     <div
-      onClick={() => navigate(`/watch?v=${videoInfo.videoId}`)}
+      onClick={() => navigate(`/watch?v=${videos?.videoId}`)}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       className="cursor-pointer"
@@ -15,9 +16,9 @@ const VideoCard = ({ videoInfo }) => {
       <div>
         <img
           src={
-            isHover && videoInfo.richThumbnail
-              ? videoInfo.richThumbnail[0].url
-              : videoInfo.thumbnail[videoInfo.thumbnail.length - 1].url
+            isHover && videos?.richThumbnail
+              ? videos?.richThumbnail[0]?.url
+              : videos?.thumbnail[videos?.thumbnail?.length - 1]?.url
           }
           alt=""
           className="w-full h-full rounded-lg"
@@ -26,21 +27,21 @@ const VideoCard = ({ videoInfo }) => {
       {/*video alt detay alanı */}
       <div className="flex gap-4 mt-5">
         <img
-          src={videoInfo.channelThumbnail && videoInfo.channelThumbnail[0].url}
+          src={videos?.channelThumbnail && videos?.channelThumbnail[0].url}
           alt="logo"
           className="w-14 h-14 rounded-full c-pic"
         />
         <div>
-          <h4 className="font-bold line-clamp-2">{videoInfo.title}</h4>
-          <p>{videoInfo.channelTitle}</p>
+          <h4 className="font-bold line-clamp-2">{videos?.title}</h4>
+          <p>{videos?.channelTitle}</p>
           <div className="flex gap-3">
             <p className="flex gap-2">
-              <span>{millify(videoInfo.viewCount)}</span>
+              <span>{millify(videos?.viewCount)}</span>
               <span className="text">Görüntülenme</span>
             </p>
             *
             <p className="whitespace-nowrap text-[14px]">
-              {videoInfo.publishedTimeText}
+              {videos?.publishedTimeText}
             </p>
           </div>
         </div>
